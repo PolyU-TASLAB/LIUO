@@ -1,0 +1,25 @@
+uwb_range_topic: /nlink_linktrack_nodeframe3
+
+num_uwb: 3
+
+AnchorId: [2, 3, 4]
+
+AnchorPos: [-43.451382, 43.301118, -1.665605,
+            -246.487865, 34.101336, -2.870162,
+            -36.585269, -34.773387, -2.365510
+            ]
+# the antenna offset on the moving module, there may be multiple antennas. DONOT SET IT IF THERE IS NO OFFSET  
+antennaOffset: [0.0, 0, 0, 0.0, 0, 0, 0, 0.0]
+
+max_range: 1000.0
+max_buffer_size: 5000
+
+# uwb to imu
+Extrinsics:  
+  time_offset: -11421472
+  Trans: [2.36286543, 1.50120605, -2.25498026]
+  Rot: [-0.90094121, -0.43297582, 0.0289348,
+        0.43058026, -0.90025605, -0.06433793,
+        0.05390549, -0.04550592, 0.9975087]
+
+anchor_noise_std: 0.1

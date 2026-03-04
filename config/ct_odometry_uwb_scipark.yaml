@@ -1,0 +1,97 @@
+odometry_mode: 2  # LIO = 0, LICO = 1, LIU = 2, LICU = 3, IU = 4
+
+# Run mode selection: bag = offline bag file mode, realtime = realtime subscription mode
+run_mode: "bag"  # "bag" or "realtime"
+
+timing:
+  enable: false
+  output_file: runbag_timing.csv
+  level: minimal
+
+log_path: logs
+save_trajectory:
+  enable: false
+  output_dir: logs
+save_pcd:
+  enable: false
+  output_dir: logs
+config_path: ./config
+lidar_yaml: /scipark/lidar.yaml
+imu_yaml: /scipark/imu.yaml
+uwb_yaml: /scipark/uwb.yaml
+
+bag_path: /home/dev/Dataset/scipark/small_loop.ba #2025-01-22-16-31-06_camera_lidar_imu_uwb.bag
+bag_start: 0.
+bag_durr: -1
+
+
+### SplineParams ###
+t_add: 0.1  # [s] trajectory is updated every delta_t seconds, no adjustment needed
+distance0: 0.03  # [s] the time duration corresponding to the first 4 control points, no adjustment needed
+non_uniform: true  # true for non-uniform b-spline, false for uniform b-spline
+division_coarse: 1  # if it is uniform, decide how many control points to place in every delta_t seconds, must be a non-zero integer
+
+### OptimizationParams ###
+lidar_iter: 1
+enable_residual_block_logging: false
+solve_num_threads: 4
+solve_function_tolerance: 1e-3
+solve_gradient_tolerance: 1e-8
+solve_parameter_tolerance: 1e-6
+use_lidar_scale: true  # scale the lidar weight
+lidar_weight: 1000.0
+uwb_weight: 1.0
+AnchorPriorWeight: 10.0
+
+# UWB anchor optimization settings
+optimize_uwb_anchors: false  # Enable/disable UWB anchor position optimization
+uwb_anchor_weight: 1.0      # Weight for UWB anchor position constraints
+
+# UWB single anchor optimization settings
+optimize_one_uwb_anchor: false # Enable/disable optimization of a single UWB anchor
+target_uwb_anchor_id: 1      # ID of the UWB anchor to optimize (if optimize_one_uwb_anchor is true)
+
+# imu: BMI088 (200Hz)
+# derived from data manual https://terra-1-g.djicdn.com/65c028cd298f4669a7f0e40e50ba1131/demo/avia/Livox%20AVIA%20User%20Manual_CHS.pdf
+gyroscope_noise_density: 3.45557556e-03
+gyroscope_random_walk: 2.617993833e-07                    
+accelerometer_noise_density: 2.425376259e-02
+accelerometer_random_walk: 1.96e-06         
+
+### EvalutaionParams ###
+is_evo_viral: false
+
+
+
+# ========================================
+# UWB NLOS Detection Configuration  
+# ========================================
+
+# Enable/Disable UWB NLOS detection
+enable_nlos_detection: true
+
+# Voxel resolution for NLOS detection (meters)
+# Smaller values: more accurate but slower
+# Recommended: 0.1 ~ 0.3
+nlos_voxel_resolution: 0.2
+
+# Query radius for KD-tree search (meters)
+# Should be large enough to cover obstacles around the path
+# Recommended: 1.0 ~ 2.0
+nlos_query_radius: 1.5
+
+# AABB bounding box expansion (meters)
+# Safety margin around the line-of-sight
+# Recommended: 0.5 ~ 1.5
+nlos_bbox_expansion: 1.0
+
+# LOS reference variance (sigma^2_los)
+# Intrinsic noise of UWB sensor under ideal conditions
+# Recommended: 0.01 ~ 0.05 (for typical UWB sensors)
+nlos_sigma_los_squared: 0.01
+
+# Penetration penalty parameter (alpha)
+# Additional variance per occupied voxel
+# Recommended: 0.01 ~ 0.1
+# Larger values: more aggressive downweighting of NLOS
+nlos_alpha_penalty: 0.05

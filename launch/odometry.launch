@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- <arg name="config_path"       default = "/config/ct_odometry_uwb_vicon.yaml" /> -->
+  <!-- <arg name="config_path"       default = "/config/ct_odometry_uwb_wuxi.yaml" /> -->
+  <arg name="config_path"       default = "/config/ct_odometry_uwb_scipark.yaml" />
+
+  <arg name="bag_path"          default = "" />  
+  <arg name="pasue_time"        default = "-1" />
+  <arg name="verbose"           default = "false" />
+  <arg name="run_mode"          default = "realtime" />  <!-- "bag" or "realtime" -->  
+  
+
+  <!-- <node pkg="liuo" type="odometry_node" name="$(anon odometry_node)" output="screen" clear_params="true" 
+        launch-prefix="gdb -ex run -args"> -->
+    <node pkg="liuo" type="odometry_node" name="$(anon odometry_node)" output="screen">
+    <!-- <node pkg="liuo" type="odometry_node" name="$(anon odometry_node)" output="screen" launch-prefix="gdb -ex run -args"> -->
+    <param name="config_path"     type="string" value="$(find liuo)$(arg config_path)" />
+    <!-- if 'bag_path' is none here then use get the 'bag_path' params in the yaml file-->
+    <param name="bag_path"        type="string" value="$(arg bag_path)" />
+    <param name="pasue_time"      type="double" value="$(arg pasue_time)" />
+    <param name="verbose"         type="bool"   value="$(arg verbose)" />
+    <param name="run_mode"        type="string" value="$(arg run_mode)" />
+  </node>
+
+  <node pkg="rviz" type="rviz" name="rviz_odom" output="log" required = "true" args="-d $(find liuo)/config/liuo.rviz" />
+</launch>
