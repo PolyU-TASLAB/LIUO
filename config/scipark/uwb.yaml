@@ -23,3 +23,19 @@ Extrinsics:
         0.05390549, -0.04550592, 0.9975087]
 
 anchor_noise_std: 0.1
+
+RangeCalibration:
+  enabled: true
+  timestamp_offset_s: 0.0
+  anchor_ids: [2, 3, 4]
+  scale: [0.9996153502590256, 1.001536451704318, 0.9988481980366564]
+  bias_m: [0.32253529812982873, 0.2929200973201016,
+           0.21290330261869495]
+  sigma_m: [0.12711783220101985, 0.15878743090663514,
+            0.19338133843493321]
+  robust_scale_sigma: 2.5
+
+
+UWBTimeCalibration:
+  enabled: true
+  timestamp_offset_s: 0.0

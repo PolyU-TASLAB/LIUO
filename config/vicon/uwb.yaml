@@ -49,3 +49,20 @@ Extrinsics:
         0, 0, 1]
 
 anchor_noise_std: 0.2
+RangeCalibration:
+  enabled: true
+  timestamp_offset_s: -0.05995
+  anchor_ids: [1, 2, 3, 4]
+  scale: [1.0, 1.0, 1.0, 1.0]
+  bias_m: [0.371649, 0.3241218055237236, 0.2913048028911305,
+           0.2129320896537712]
+  sigma_m: [0.081624, 0.06488087391572657, 0.13944595298904058,
+            0.16252698310351638]
+  robust_scale_sigma: 2.5
+
+
+UWBTimeCalibration:
+  enabled: true
+  timestamp_offset_s: -0.05995 
+  # timestamp_offset_s: -0.07575 # Vicon-NLOS
+
