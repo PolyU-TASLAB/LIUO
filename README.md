@@ -1,6 +1,7 @@
 # LIUO
 
-**Outlier-Aware LiDAR/IMU/UWB Integration with NLOS Mitigation and Anchor Self-Calibration in Complex Scenarios**
+**[Outlier-Aware LiDAR/IMU/UWB Integration with NLOS Mitigation and Anchor Self-Calibration in Complex Scenarios](https://ieeexplore.ieee.org/document/11732054)**
+
 
 LIUO is a ROS 1 research system for tightly coupled continuous-time fusion of LiDAR, raw IMU, and UWB ranging measurements. It represents the platform trajectory with non-uniform B-splines, jointly optimizes UWB anchor positions when self-calibration is enabled, and uses LiDAR-map geometry to mitigate UWB non-line-of-sight (NLOS) measurements.
 
@@ -59,12 +60,15 @@ Indoor examples use `/config/ct_odometry_uwb_vicon_los.yaml` and `/config/ct_odo
 ## Citation
 
 ```bibtex
-@misc{xiao2026liuo,
-  title        = {Outlier-Aware LiDAR/IMU/UWB Integration with NLOS Mitigation and Anchor Self-Calibration in Complex Scenarios},
-  author       = {Naigui Xiao and Lu Bai and Weisong Wen},
-  year         = {2026},
-  howpublished = {Manuscript under review},
-  url          = {https://github.com/PolyU-TASLAB/LIUO}
-}
+@ARTICLE{11732054,
+  author={Xiao, Naigui and Wen, Weisong and Bai, Lu and Wang, Xiangru and Hu, Jiahao and Zhang, Qi and Jiao, Jianhao and Lyu, Zhen and Huang, Feng},
+  journal={IEEE Transactions on Instrumentation and Measurement}, 
+  title={Outlier-Aware LiDAR–IMU–UWB Integration with NLOS Mitigation and Anchor Self-Calibration in Complex Scenarios}, 
+  year={2026},
+  volume={},
+  number={},
+  pages={1-1},
+  keywords={Laser radar;Distance measurement;Trajectory;Measurement;Timing;Splines (mathematics);Optimization;Calibration;Modeling;Joining processes;Sensor fusion;state estimation;autonomous navigation;continuous-time simultaneous localization and mapping;UWB anchor self-calibration;NLOS mitigation},
+  doi={10.1109/TIM.2026.3742091}}
 ```
 
