@@ -1,6 +1,7 @@
 # LIUO
 
-**Outlier-Aware LiDAR/IMU/UWB Integration with NLOS Mitigation and Anchor Self-Calibration in Complex Scenarios** [Paper Link](https://ieeexplore.ieee.org/document/11732054)
+**Outlier-Aware LiDAR/IMU/UWB Integration with NLOS Mitigation and Anchor Self-Calibration in Complex Scenarios** 
+[Paper Link](https://ieeexplore.ieee.org/document/11732054)
 
 
 LIUO is a ROS 1 research system for tightly coupled continuous-time fusion of LiDAR, raw IMU, and UWB ranging measurements. It represents the platform trajectory with non-uniform B-splines, jointly optimizes UWB anchor positions when self-calibration is enabled, and uses LiDAR-map geometry to mitigate UWB non-line-of-sight (NLOS) measurements.
